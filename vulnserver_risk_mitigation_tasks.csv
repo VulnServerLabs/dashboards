@@ -1,0 +1,16 @@
+BIA ID,Task/Policy,Description,Owner,Priority
+BIA-01,Provisioning Queue System,Add retry logic to provisioning API with a queued buffer for delayed AWS capacity.,Engineering,High
+BIA-01,AWS Quota Monitor,Implement pre-launch AWS service quota checks to avoid provisioning failures.,Engineering,High
+BIA-02,Fallback OTP Login,Introduce one-time passcode login as a backup for failed email token delivery.,Security / Engineering,Moderate
+BIA-02,Email Error Feedback Policy,Improve client-side feedback for magic link errors with standard UX flows.,UX / Engineering,Moderate
+BIA-03,Webhook Retry Buffer,Build a queue and retry system for failed Stripe webhooks.,Engineering,High
+BIA-03,Pending Webhook Tracker,Log and store pending webhook states to prevent session creation loss.,Engineering,Moderate
+BIA-04,DynamoDB Backup Schedule,Automate daily export of DynamoDB tables to S3 with versioning enabled.,DevOps,Moderate
+BIA-04,Anomaly Alerting for Sessions,Set up CloudWatch alarms to detect abnormal item count changes.,DevOps,Low
+BIA-06,S3 Object Lock,Enable object lock to prevent accidental deletion or overwrite.,DevOps,Low
+BIA-06,Asset Integrity Scan,Schedule periodic checksums or integrity validation on hosted files.,Engineering,Low
+BIA-08,Email Retry Mechanism,Build fallback queue for SES delivery failures.,DevOps,Moderate
+BIA-08,Secondary Email Provider Policy,"Integrate a secondary SMTP (Mailgun, etc.) as a failover.",DevOps,Low
+BIA-09,One-Time Token Enforcement,Update JWT flow to include jti (token ID) and invalidate after first use.,Security / Engineering,Moderate
+BIA-09,Geo/IP Token Policy,Apply geographic or IP fingerprinting validation to token usage.,Security,Moderate
+BIA-10,State Backup Replication,Configure S3 cross-region replication for Terraform state files.,DevOps,Moderate

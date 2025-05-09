@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VulnServer Labs | Task Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    h1 { color: #333; }
+    input[type="text"] { padding: 0.5em; width: 300px; margin-bottom: 1em; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    tr.high { background-color: #ffd6d6; }
+    tr.moderate { background-color: #fff3cd; }
+    tr.low { background-color: #d6f5d6; }
+  </style>
+</head>
+<body>
+  <h1>🛠 VulnServer Risk Mitigation Task Dashboard</h1>
+  <input type="text" id="searchInput" placeholder="Search by Task, Owner, or Priority..." onkeyup="filterTable()">
+
+  <table id="taskTable">
+    <thead>
+      <tr>
+        <th>BIA ID</th>
+        <th>Task/Policy</th>
+        <th>Description</th>
+        <th>Owner</th>
+        <th>Priority</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function loadTasks() {
+      const response = await fetch("vulnserver_risk_mitigation_tasks.csv");
+      const text = await response.text();
+      const rows = text.trim().split('\n').slice(1);
+      const tbody = document.querySelector("#taskTable tbody");
+
+      rows.forEach(row => {
+        const cells = row.split(',');
+        const tr = document.createElement("tr");
+        const priority = cells[4].toLowerCase().trim();
+        tr.classList.add(priority);
+        cells.forEach(cell => {
+          const td = document.createElement("td");
+          td.textContent = cell;
+          tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+      });
+    }
+
+    function filterTable() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#taskTable tbody tr");
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+      });
+    }
+
+    loadTasks();
+  </script>
+</body>
+</html>
