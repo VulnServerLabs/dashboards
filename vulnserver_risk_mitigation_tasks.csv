@@ -10,7 +10,7 @@ BIA-04,Anomaly Alerting for Sessions,Set up CloudWatch alarms to detect abnormal
 BIA-06,S3 Object Lock,Enable object lock to prevent accidental deletion or overwrite.,DevOps,Low
 BIA-06,Asset Integrity Scan,Schedule periodic checksums or integrity validation on hosted files.,Engineering,Low
 BIA-08,Email Retry Mechanism,Build fallback queue for SES delivery failures.,DevOps,Moderate
-BIA-08,Secondary Email Provider Policy,"Integrate a secondary SMTP (Mailgun, etc.) as a failover.",DevOps,Low
+BIA-08,Secondary Email Provider Policy,"Integrate a secondary SMTP (Mailgun etc.) as a failover.",DevOps,Low
 BIA-09,One-Time Token Enforcement,Update JWT flow to include jti (token ID) and invalidate after first use.,Security / Engineering,Moderate
 BIA-09,Geo/IP Token Policy,Apply geographic or IP fingerprinting validation to token usage.,Security,Moderate
 BIA-10,State Backup Replication,Configure S3 cross-region replication for Terraform state files.,DevOps,Moderate
